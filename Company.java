@@ -23,11 +23,11 @@ public class Company {
     /**
      * Constructor of class Company
      */
-    public Company(ArrayList<User> clients, ArrayList<User> sellers, ArrayList<Property> properties, ArrayList<Sell> Sells) {
-        this.clients = clients;
-        this.sellers = sellers;
-        this.properties = properties;
-        this.sells = sells;
+    public Company() {
+        this.clients = new ArrayList<User>();
+        this.sellers = new ArrayList<User>();
+        this.properties = new ArrayList<Property>();
+        this.sells = new ArrayList<Sell>();
     }
 
     /**

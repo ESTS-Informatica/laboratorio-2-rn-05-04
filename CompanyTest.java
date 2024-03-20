@@ -37,7 +37,7 @@ public class CompanyTest
         this.client2 = new User("António Francisco", "922222222", "tochico@hotmail.com");
         this.seller1 = new User("Fernando Fernandes", "966777101", "fefe@remax.pt");
         this.seller2 = new User("Rodrigo Rodrigues", "966777152", "roro@remax.pt");
-        this.company = new Company(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.company = new Company();
     }
     
     @Test
