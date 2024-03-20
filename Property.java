@@ -29,14 +29,14 @@ public class Property {
      * Id selector.
      */
     public String getId() {
-        return "";
+        return this.id;
     }
 
     /**
      * Description selector.
      */
     public String getDescription() {
-        return "";
+        return this.description;
     }
 
     /**
@@ -52,7 +52,7 @@ public class Property {
      * Price selector.
      */
     public double getPrice() {
-        return -1.0;    
+        return this.price;    
     }
     
     /**
