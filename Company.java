@@ -130,7 +130,12 @@ public class Company {
      * @return true If the request succeeds, false otherwise.
      */
     public boolean createSell(User client, User seller, Property property) {
-        return true;         // dummy implementation
+        if(!sells.contains(new Sell(client, seller, property)) && client != null && seller != null && property != null){
+            this.sells.add(new Sell(client,seller,property));
+            return true;
+        }
+        else
+            return false;     
     }
 
     /**
@@ -140,7 +145,14 @@ public class Company {
      * @return The total number of sells in the year.
      */
     public int calculateSellsOfTheYear(int year) {
-        return 0;         // dummy implementation
+        
+        int contador = 0;
+        for (Sell sell : sells){
+            if (sell.getDate().getYear() + 1900 == year){
+                contador ++;
+            }
+        }
+        return contador;         // dummy implementation
     }
 
     /**
@@ -150,6 +162,10 @@ public class Company {
      * @return The name of the seller of the year.
      */
     public String findSellerOfTheYear(int year) {
+        ArrayList<User> sellersWhoSold = new ArrayList<User>();
+        for (Sell sell : sells){
+            sellersWhoSold.add(sell.getSeller());
+        }
         return null;         // dummy implementation
     }
 

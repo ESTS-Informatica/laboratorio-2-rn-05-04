@@ -19,6 +19,8 @@ public class CompanyTest
     User seller2;
     Property property1;
     Property property2;
+    Sell sell1;
+    Sell sell2;
     Company company;
     /**
      * Construtor default para a classe de teste CompanyTest
@@ -42,6 +44,8 @@ public class CompanyTest
         this.property1 = new Property("Teste", 10000.0);
         this.property2 = new Property("Teste2", 11000.0);
         this.company = new Company();
+        this.sell1 = new Sell(this.client1, this.seller1, this.property1);
+        this.sell2 = new Sell(this.client2, this.seller2, this.property2);
     }
     
     @Test
@@ -117,7 +121,16 @@ public class CompanyTest
         assertFalse(this.company.registerProperty(null));
     }
     
+    //SELL
+    @Test
+    public void testCreateSell(){
+        assertTrue(this.company.createSell(client1,seller1,property1));
+    }
     
+    @Test
+    public void testCalculateSellsOfTheYear(){
+        assertEquals(2,this.company.calculateSellsOfTheYear(2024));
+    }
 
     /**
      * Desfaz a 'fixture' do teste.
