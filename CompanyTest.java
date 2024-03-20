@@ -17,6 +17,8 @@ public class CompanyTest
     User client2;
     User seller1;
     User seller2;
+    Property property1;
+    Property property2;
     Company company;
     /**
      * Construtor default para a classe de teste CompanyTest
@@ -37,6 +39,8 @@ public class CompanyTest
         this.client2 = new User("António Francisco", "922222222", "tochico@hotmail.com");
         this.seller1 = new User("Fernando Fernandes", "966777101", "fefe@remax.pt");
         this.seller2 = new User("Rodrigo Rodrigues", "966777152", "roro@remax.pt");
+        this.property1 = new Property("Teste", 10000.0);
+        this.property2 = new Property("Teste2", 11000.0);
         this.company = new Company();
     }
     
@@ -47,6 +51,73 @@ public class CompanyTest
         assertNotNull(this.company.getProperties());
         assertNotNull(this.company.getSells());
     }
+    
+    @Test
+    public void testRegisterClient(){
+        assertTrue(this.company.registerClient(client1));
+    }
+    
+    @Test
+    public void testRegisterClients(){
+        assertTrue(this.company.registerClient(client1));
+        assertTrue(this.company.registerClient(client2));
+    }
+    
+    @Test
+    public void testRegisterClientDuplicate(){
+        assertNotSame(this.company.registerClient(client1),this.company.registerClient(client1));
+    }
+    
+    @Test
+    public void testRegisterClientNull(){
+        assertFalse(this.company.registerClient(null));
+    }
+    
+    //Sellers
+    @Test
+    public void testRegisterSeller(){
+        assertTrue(this.company.registerSeller(seller1));
+    }
+    
+    @Test
+    public void testRegisterSellers(){
+        assertTrue(this.company.registerSeller(seller1));
+        assertTrue(this.company.registerSeller(seller2));
+    }
+    
+    @Test
+    public void testRegisterSellerDuplicate(){
+        assertNotSame(this.company.registerSeller(seller1),this.company.registerSeller(seller1));
+    }
+    
+    @Test
+    public void testRegisterSellerNull(){
+        assertFalse(this.company.registerSeller(null));
+    }
+    
+    //Property
+    @Test
+    public void testRegisterProperty(){
+        assertTrue(this.company.registerProperty(property1));
+    }
+    
+    @Test
+    public void testRegisterProperties(){
+        assertTrue(this.company.registerProperty(property1));
+        assertTrue(this.company.registerProperty(property2));
+    }
+    
+    @Test
+    public void testRegisterPropertyDuplicate(){
+        assertNotSame(this.company.registerProperty(property1),this.company.registerProperty(property1));
+    }
+    
+    @Test
+    public void testRegisterPropertyNull(){
+        assertFalse(this.company.registerProperty(null));
+    }
+    
+    
 
     /**
      * Desfaz a 'fixture' do teste.
